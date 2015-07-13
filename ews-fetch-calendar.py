@@ -173,7 +173,7 @@ namespaces = {
 elements = root.xpath(xpathStr, namespaces=namespaces)
 for element in elements:
   subject= element.find('{http://schemas.microsoft.com/exchange/services/2006/types}Subject').text
-  location= element.find('{http://schemas.microsoft.com/exchange/services/2006/types}Location').text
+  location = getattr(element.find('{http://schemas.microsoft.com/exchange/services/2006/types}Location'), 'text', 'None')
   start = element.find('{http://schemas.microsoft.com/exchange/services/2006/types}Start').text
   end = element.find('{http://schemas.microsoft.com/exchange/services/2006/types}End').text
   response = element.find('{http://schemas.microsoft.com/exchange/services/2006/types}MyResponseType').text
